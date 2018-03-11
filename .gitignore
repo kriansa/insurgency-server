@@ -1,0 +1,6 @@
+# Ignore terraform binaries
+terraform/.terraform
+
+# Ignore terraform state
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup

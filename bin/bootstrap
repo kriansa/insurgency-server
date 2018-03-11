@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Create the infrastructure
+bin/terraform apply -auto-approve

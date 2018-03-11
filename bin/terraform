@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# cd to root path
+cd "$(dirname "$0")/.." || exit;
+
+# Loads .env and export all variables even if they haven't been exported
+set -o allexport
+source ".env"
+set +o allexport
+
+# Run terraform
+cd terraform && terraform "$@"
