@@ -1,0 +1,15 @@
+#!/bin/sh
+
+# cd to scripting/custom path
+cd "$(dirname "$0")/sourcemod/scripting/custom" || exit;
+
+# Create output path
+test -d ../../plugins/custom || mkdir ../../plugins/custom
+
+# Compile every file in plugins/custom
+for file in *.sp; do
+  echo "Compiling $file"
+
+  smxfile=$(echo "$file" | sed -e 's/\.sp$/\.smx/')
+  ../spcomp "$file" -o "../../plugins/custom/$smxfile"
+done
