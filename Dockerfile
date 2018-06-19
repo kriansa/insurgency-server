@@ -23,7 +23,9 @@ RUN chown -R steam:steam \
   insurgency/subscribed_file_ids.txt
 USER steam
 
-# Run command with workshop support
-CMD ./srcds_linux -port 27015 -ip 0.0.0.0 +sv_pure 0 -workshop +map $MAPNAME \
-  +maxplayers $MAXPLAYERS +rcon_password "$RCON_PASSWORD" \
-  +sv_password "$SV_PASSWORD"
+# Run command with workshop support and tweaking it to Checkpoint Fun mode
+# sv_pure and mapcyclefile have to be set on CLI
+CMD ./srcds_linux -port 27015 -ip 0.0.0.0 -workshop \
+   +rcon_password "$RCON_PASSWORD" +sv_password "$SV_PASSWORD" \
+   +maxplayers $MAXPLAYERS +map $MAPNAME \
+   +mapcyclefile "mapcycle_checkpoint.txt" +sv_pure 0
