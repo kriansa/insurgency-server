@@ -4,4 +4,4 @@
 cd "$(dirname "$0")/.." || exit;
 
 # Setup terraform
-terraform init terraform
+bin/terraform init

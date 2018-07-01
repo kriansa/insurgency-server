@@ -3,10 +3,10 @@
 # cd to root path
 cd "$(dirname "$0")/.." || exit;
 
-# Loads .env and export all variables even if they haven't been exported
-set -o allexport
-source ".env"
-set +o allexport
+# Loads the .env
+# shellcheck disable=2039 disable=1091
+source "./.env"
 
 # Run terraform
-cd terraform && terraform "$@"
+# shellcheck disable=2068
+cd terraform && terraform $@
