@@ -1,8 +1,8 @@
 # This is the role that gets attached to the CodeBuild so it can use AWS
 # services in our behalf
 resource "aws_iam_role" "codebuild" {
-  name = "CodeBuildRole"
-  description = "Role attached to CodeBuild"
+  name = "CodeBuildRoleFor${local.service_name}"
+  description = "Role attached to CodeBuild for Insurgency Server access"
 
   assume_role_policy = <<EOF
 {
@@ -55,7 +55,7 @@ resource "aws_iam_role_policy_attachment" "enable_ecr_write_to_codebuild" {
 # This Policies are required in order to make CodeBuild service role work
 # https://docs.aws.amazon.com/codebuild/latest/userguide/setting-up.html#setting-up-service-role
 resource "aws_iam_policy" "logs_write" {
-  name        = "CloudWatchLogsWriteAccess"
+  name        = "CloudWatchLogsWriteAccessFor${local.service_name}"
   description = "Policy to enable log creation"
 
   policy = <<POLICY

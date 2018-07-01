@@ -5,7 +5,7 @@ resource "aws_vpc" "main" {
 
   tags {
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }
 
@@ -16,7 +16,7 @@ resource "aws_subnet" "main" {
 
   tags {
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }
 
@@ -26,7 +26,7 @@ resource "aws_internet_gateway" "main" {
   tags {
     Name = "default"
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }
 
@@ -41,7 +41,7 @@ resource "aws_default_route_table" "main" {
   tags {
     Name = "default"
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }
 
@@ -58,7 +58,7 @@ resource "aws_default_security_group" "default" {
   tags {
     Name = "default"
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }
 
@@ -83,6 +83,6 @@ resource "aws_security_group" "allow_server_traffic_from_internet" {
 
   tags {
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }

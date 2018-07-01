@@ -1,7 +1,7 @@
 data "aws_caller_identity" "current" {}
 
 resource "aws_codebuild_project" "image_builder" {
-  name = "InsurgencyServer-ImageBuilder"
+  name = "${local.service_name}-ImageBuilder"
   description  = "This is responsible for building the Insurgency Docker image and pushing it to ECR"
   service_role = "${aws_iam_role.codebuild.arn}"
 
@@ -47,7 +47,7 @@ resource "aws_codebuild_project" "image_builder" {
 
   tags {
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 
   provisioner "local-exec" {

@@ -3,11 +3,12 @@ resource "aws_ecr_repository" "main" {
 }
 
 resource "aws_ecs_cluster" "main" {
-  name = "InsurgencyServer-Cluster"
+  name = "${local.service_name}-Cluster"
+
 }
 
 resource "aws_ecs_task_definition" "main" {
-  family = "InsurgencyServer-Task"
+  family = "${local.service_name}-Task"
   network_mode = "awsvpc"
   requires_compatibilities = ["FARGATE"]
   cpu = "512"
@@ -23,7 +24,7 @@ resource "aws_ecs_task_definition" "main" {
   container_definitions = <<DEFINITION
 [
   {
-    "name": "InsurgencyServer-Container",
+    "name": "${local.service_name}-Container",
     "image": "${aws_ecr_repository.main.repository_url}",
     "memory": 1024,
     "essential": true,
@@ -43,7 +44,7 @@ resource "aws_ecs_task_definition" "main" {
       "options": {
         "awslogs-group": "${aws_cloudwatch_log_group.insurgency_server.name}",
         "awslogs-region": "${var.aws_region}",
-        "awslogs-stream-prefix": "InsurgencyServer"
+        "awslogs-stream-prefix": "${local.service_name}"
       }
     },
     "environment": [
@@ -66,7 +67,7 @@ DEFINITION
 }
 
 resource "aws_ecs_service" "main" {
-  name = "InsurgencyServer-Service"
+  name = "${local.service_name}-Service"
   cluster = "${aws_ecs_cluster.main.id}"
   task_definition = "${aws_ecs_task_definition.main.arn}"
   launch_type = "FARGATE"

@@ -1,8 +1,8 @@
 resource "aws_cloudwatch_log_group" "insurgency_server" {
-  name = "InsurgencyServer-Logs"
+  name = "${local.service_name}-Logs"
 
   tags {
     ServiceType = "GameServer"
-    ServiceName = "InsurgencyServer"
+    ServiceName = "${local.service_name}"
   }
 }

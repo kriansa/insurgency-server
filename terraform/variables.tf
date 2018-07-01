@@ -17,3 +17,7 @@ variable github_repo {
   type = "string"
   description = "The Github URL for this repository"
 }
+
+locals {
+  service_name = "InsurgencyServer"
+}

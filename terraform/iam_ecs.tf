@@ -3,7 +3,7 @@ data "aws_iam_policy" "amazon_ecs_task_execution_role_policy" {
 }
 
 resource "aws_iam_role" "ecs_task_execution" {
-  name = "ECSTaskExecutionRole"
+  name = "ECSTaskExecutionRoleFor${local.service_name}"
   description = "Role attached to ECS Task Execution"
 
   assume_role_policy = <<EOF
