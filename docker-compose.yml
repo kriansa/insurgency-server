@@ -1,0 +1,12 @@
+version: "3.3"
+
+services:
+  srcds:
+    build:
+      context: .
+    ports:
+      - "27015:27015/udp"
+    volumes:
+      - ./game/addons:/home/steam/server/insurgency/addons:rw
+      - ./game/cfg:/home/steam/server/insurgency/cfg:ro
+      - ./game/subscribed_file_ids.txt:/home/steam/server/insurgency/subscribed_file_ids.txt:ro
