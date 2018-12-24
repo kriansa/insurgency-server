@@ -14,7 +14,7 @@ resource "aws_codebuild_project" "image_builder" {
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image = "aws/codebuild/docker:17.09.0"
+    image = "aws/codebuild/docker:18.09.0"
     type = "LINUX_CONTAINER"
     # This is now required for AWS provided Docker images
     privileged_mode = true

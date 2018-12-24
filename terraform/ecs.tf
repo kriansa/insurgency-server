@@ -27,6 +27,7 @@ resource "aws_ecs_task_definition" "main" {
     "name": "${local.service_name}-Container",
     "image": "${aws_ecr_repository.main.repository_url}",
     "memory": 1024,
+    "init": true,
     "essential": true,
     "networkMode": "awsvpc",
     "portMappings": [

@@ -4,6 +4,7 @@ services:
   srcds:
     build:
       context: .
+    init: true
     ports:
       - "27015:27015/udp"
     volumes:

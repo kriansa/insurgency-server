@@ -1,4 +1,4 @@
-FROM kriansa/insurgency-server
+FROM kriansa/insurgency-server:2018-12-24
 LABEL maintainer="Daniel Pereira <daniel@garajau.com.br>"
 
 # Runtime settings
