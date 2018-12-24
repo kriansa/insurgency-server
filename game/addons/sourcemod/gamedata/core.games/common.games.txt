@@ -107,7 +107,9 @@
 			{
 				"windows"		"11"
 				"linux"			"12"
+				"linux64"		"12"
 				"mac"			"12"
+				"mac64"			"12"
 			}
 		}
 	}
@@ -179,6 +181,7 @@
 			"game"					"kz"
 			"game"					"doi"
 			"game"					"bms"
+			"game"					"iosoccer"
 		}
 
 		"Keys"
@@ -228,6 +231,7 @@
 			"game"					"kz"
 			"game"					"doi"
 			"game"					"bms"
+			"game"					"iosoccer"
 		}
 		
 		"Keys"

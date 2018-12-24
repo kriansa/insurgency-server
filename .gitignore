@@ -4,3 +4,7 @@ terraform/.terraform
 # Ignore terraform state
 terraform/terraform.tfstate
 terraform/terraform.tfstate.backup
+
+# Ignore logs
+game/addons/sourcemod/logs
+game/addons/sourcemod/data
